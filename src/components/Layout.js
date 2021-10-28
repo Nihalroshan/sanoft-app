@@ -64,7 +64,7 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div style={{display:"flex"}}>
+    <div style={{ display: "flex" }}>
       <AppBar elevation={0} style={styles.appbar}>
         <Toolbar style={styles.toolbar}>
           <Button startIcon={<ExitToAppIcon />} variant="contained">
@@ -91,6 +91,7 @@ const Layout = ({ children }) => {
         <List style={{ marginTop: "10px" }}>
           {drawerLinks.map((link) => (
             <ListItem
+              key={link.text}
               onClick={(e) => console.log(e.target.innerText)}
               style={styles.list}
               button
@@ -105,7 +106,7 @@ const Layout = ({ children }) => {
           ))}
         </List>
       </Drawer>
-      <div style={{marginTop:"58px"}}>{children}</div>
+      <div style={{ marginTop: "58px" }}>{children}</div>
     </div>
   );
 };
