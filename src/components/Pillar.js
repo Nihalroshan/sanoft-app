@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Grid, Box, Typography, Button } from "@mui/material";
 import axios from "axios";
 import CardItem from "./CardItem";
 import AddIcon from "@mui/icons-material/Add";
 import Drawer from "@mui/material/Drawer";
 import AddItem from "./AddItem";
-// import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 const Pillar = ({ type, button, items }) => {
   const [state, setState] = useState(false);

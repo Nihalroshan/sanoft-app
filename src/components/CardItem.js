@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Card, Avatar, CardHeader } from "@mui/material";
 
 const CardItem = ({ items, type,onDragStart }) => {

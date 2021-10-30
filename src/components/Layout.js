@@ -1,7 +1,5 @@
-import React from "react";
 import {
   Drawer,
-  Typography,
   Divider,
   List,
   ListItem,
@@ -18,6 +16,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useHistory } from "react-router";
 
 const drawerWidth = 230;
 
@@ -50,6 +49,8 @@ const drawerLinks = [
 ];
 
 const Layout = ({ children }) => {
+  const history = useHistory();
+
   const styles = {
     appbar: {
       backgroundColor: "white",
@@ -63,11 +64,20 @@ const Layout = ({ children }) => {
     },
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    history.push("/login");
+  };
+
   return (
     <div style={{ display: "flex" }}>
       <AppBar elevation={0} style={styles.appbar}>
         <Toolbar style={styles.toolbar}>
-          <Button startIcon={<ExitToAppIcon />} variant="contained">
+          <Button
+            onClick={handleLogout}
+            startIcon={<ExitToAppIcon />}
+            variant="contained"
+          >
             Logout
           </Button>
         </Toolbar>
@@ -84,9 +94,11 @@ const Layout = ({ children }) => {
         variant="permanent"
         anchor="left"
       >
-        <Typography align="center" margin={1} variant="h4">
-          SANOFT
-        </Typography>
+        <img
+          style={{ margin: "12px", width: "160px", alignSelf: "center" }}
+          src="/images/logo.jpeg"
+          alt=""
+        />
         <Divider />
         <List style={{ marginTop: "10px" }}>
           {drawerLinks.map((link) => (

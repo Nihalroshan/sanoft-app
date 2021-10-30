@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@mui/material";
 import axios from "axios";
 import Pillar from "../components/Pillar";
-// import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { useHistory } from "react-router";
 
 const ListPage = () => {
+  const history = useHistory();
+
+  const user = localStorage.getItem("user");
+  if (!user) {
+    history.push("/login");
+  }
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
